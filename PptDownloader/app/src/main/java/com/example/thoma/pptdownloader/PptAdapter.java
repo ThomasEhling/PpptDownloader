@@ -29,15 +29,10 @@ public class PptAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
         onClickListener = listener;
     }
 
-    public interface PptButtonAdapterListener{
-        void pptButtonOnClick(int position);
-    }
-
-
     public class PpAdapterViewHolder extends RecyclerView.ViewHolder {
 
-        private final TextView  pptTitle;
-        private final Button pptButton;
+        private final TextView    pptTitle;
+        private final Button      pptButton;
         private final ProgressBar pptLoadingIndicator;
 
         public PpAdapterViewHolder(View view) {
@@ -58,8 +53,6 @@ public class PptAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
         return new PpAdapterViewHolder(view);
     }
 
-
-
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
 
@@ -68,10 +61,15 @@ public class PptAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
         pptaAdapterViewHolder.pptTitle.setText(url);
 
+
         if(buttonState.get(position)=="LOADING"){
+            //if the button state associate with the url is "LOADING", we display a Loading bar
+            //We don't want the user to be able to click on the button during the download
             pptaAdapterViewHolder.pptButton.setVisibility(View.GONE);
             pptaAdapterViewHolder.pptLoadingIndicator.setVisibility(View.VISIBLE);
         }else{
+            //if the button state associate with the url is wether "DOWNLOAD" or "OPEN",
+            //we just display the text on the button
             pptaAdapterViewHolder.pptButton.setVisibility(View.VISIBLE);
             pptaAdapterViewHolder.pptLoadingIndicator.setVisibility(View.GONE);
             pptaAdapterViewHolder.pptButton.setText(buttonState.get(position));
@@ -83,6 +81,10 @@ public class PptAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
             });
         }
 
+    }
+
+    public interface PptButtonAdapterListener{
+        void pptButtonOnClick(int position);
     }
 
     @Override
