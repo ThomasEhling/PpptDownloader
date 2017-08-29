@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements PptAdapter.PptButtonAdapterListener {
 
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements PptAdapter.PptBut
         initUrls();
 
         //for each url in the url array, we create a String and a id in the corresponding arrays
+        //I have decided to let it in separated arrays so you can more easily change nor delete one if you want
         buttonState = new ArrayList<>();
         downloadId  = new ArrayList<>();
         for(int ind=0; ind<urls.size(); ind++){
@@ -64,7 +66,8 @@ public class MainActivity extends AppCompatActivity implements PptAdapter.PptBut
         //TODO : Change here with a function to fetch the urls
         urls.add("http://www.engr.iupui.edu/~stevens/cpt106/datafiles/exploringpowerpoint/chapter%202%20practice%205%20-%20hidden%20slides%20-%20a%20card%20trick.ppt");
         urls.add("https://doc.lagout.org/operating%20system%20/android/Android.ppt");
-        urls.add("https://www.google.com.sg/url?sa=t&rct=j&q=&esrc=s&source=web&cd=7&cad=rja&uact=8&ved=0ahUKEwi0q_LrwPHVAhXJLo8KHXzuC5gQFghXMAY&url=http%3A%2F%2Fpeople.apache.org%2F~tonywu%2FRoadshow10%2Ftrack2%2FThe%2520introduction%2520to%2520Android.ppt&usg=AFQjCNGzqo3XT5xC0l-fXoCwhYfYPxKNig");
+        urls.add("https://www.google.com.sg/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwiIk6OMgfLVAhWCNo8KHVz4BcoQFggnMAA&url=https%3A%2F%2Fwww.cs.umd.edu%2Fclass%2Ffall2011%2Fcmsc436%2FCMSC436%2FLectures_Labs_files%2FIntents.pdf&usg=AFQjCNGng27jb_rZswbGJEDy4pYiB4YWmQ");
+        urls.add("https://www.google.com.sg/url?sa=t&rct=j&q=&esrc=s&source=web&cd=4&cad=rja&uact=8&ved=0ahUKEwiIk6OMgfLVAhWCNo8KHVz4BcoQFgg5MAM&url=https%3A%2F%2Fs2.smu.edu%2F~coyle%2Fcse7392mobile%2Fhandouts%2FAndroid%2520Intents.pdf&usg=AFQjCNGZNpngEP5BN68-jggc_e7tIJX5IQ");
     }
 
     @Override
